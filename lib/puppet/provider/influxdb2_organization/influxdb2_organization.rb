@@ -37,7 +37,6 @@ class Puppet::Provider::Influxdb2Organization::Influxdb2Organization < Puppet::R
     instances = []
     return [] if orgs.nil?
 
-
     orgs.map do |org|
       # context.notice("incollect '#{org}'")
       instances << {
@@ -55,20 +54,20 @@ class Puppet::Provider::Influxdb2Organization::Influxdb2Organization < Puppet::R
   end
 
   def create(context, name, should)
-    context.notice("Creating '#{name}' with #{should.inspect}")
+    # context.notice("Creating '#{name}' with #{should.inspect}")
     command = "influx org create --json --name '#{should[:name]}' --description '#{should[:description]}'"
     output = Puppet::Util::Execution.execute(command).strip
   end
 
   def update(context, name, id, should)
-    context.notice("update '#{name}', #{id} with #{should.inspect}")
+    # context.notice("update '#{name}', #{id} with #{should.inspect}")
     command = "influx org update --json --id '#{id}' --name '#{should[:name]}' --description '#{should[:description]}'"
     output = Puppet::Util::Execution.execute(command).strip
 
   end
 
   def delete(context, name, id )
-    context.notice("delete '#{name}', #{id}")
+    # context.notice("delete '#{name}', #{id}")
     command = "influx org delete --json --id '#{id}'"
     output = Puppet::Util::Execution.execute(command).strip
   end
