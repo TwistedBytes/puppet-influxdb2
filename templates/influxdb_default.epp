@@ -1,0 +1,5 @@
+<%- |
+    String $config_path,
+| -%>
+
+INFLUXD_CONFIG_PATH=<%= $config_path %>

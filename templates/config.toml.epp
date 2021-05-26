@@ -1,0 +1,6 @@
+<%- |
+  Hash $config_options,
+| -%>
+# This file is managed by Puppet, any changes will be overwritten
+
+<%= to_yaml($config_options) -%>
