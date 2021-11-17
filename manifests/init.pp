@@ -49,6 +49,7 @@ class influxdb2 (
   }
 
   class { 'influxdb2::server::install': } ->
+  class { 'influxdb2::client': } ->
   class { 'influxdb2::server::config': } ->
   class { 'influxdb2::server::service': }
 
