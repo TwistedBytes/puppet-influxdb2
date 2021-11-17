@@ -7,7 +7,7 @@ class influxdb2::server::install {
   }
 
   if $influxdb2::manage_repos {
-    class { 'influxdb2::repo': }
+    require ::influxdb2::repo
   }
 
   if $influxdb2::manage_install {

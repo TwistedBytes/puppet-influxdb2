@@ -2,14 +2,15 @@ class influxdb2::client (
   $ensure         = "installed",
   $package_name   = 'influxdb2-cli',
   $manage_install = true,
+  $manage_repos   = true,
 ) {
 
   Exec {
     path => '/usr/bin:/bin',
   }
 
-  if $influxdb2::manage_repos {
-    class { 'influxdb2::repo': }
+  if $manage_repos {
+    require ::influxdb2::repo
   }
 
   if $manage_install {
