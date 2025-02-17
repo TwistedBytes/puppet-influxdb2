@@ -8,7 +8,7 @@ class influxdb2::server::service (
     $service_ensure = 'stopped'
   }
 
-  tbsystemd::unit_file { 'influxdb.service':
+  tbsystemd::unit_file { '/etc/systemd/system/influxdb.service':
     content => {
       'Service' => {
         'User'               => 'influxdb',
