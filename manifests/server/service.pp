@@ -1,4 +1,6 @@
-class influxdb2::server::service {
+class influxdb2::server::service (
+  String $startcommand = '/usr/lib/influxdb',
+){
 
   if $influxdb2::service_enabled {
     $service_ensure = 'running'
@@ -13,7 +15,7 @@ class influxdb2::server::service {
         'Group'              => 'influxdb',
 
         'EnvironmentFile'    => '-/etc/default/influxdb2',
-        'ExecStart'          => '/usr/lib/influxdb',
+        'ExecStart'          => $startcommand,
         # 'KillMode' => 'control-group',
         'Restart'            => 'on-failure',
         # 'Type' => 'forking',
