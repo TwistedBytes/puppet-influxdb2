@@ -1,5 +1,5 @@
 class influxdb2::server::service (
-  String $startcommand = '/usr/lib/influxdb',
+  String $startcommand = '/usr/bin/influxd',
 ){
 
   if $influxdb2::service_enabled {
